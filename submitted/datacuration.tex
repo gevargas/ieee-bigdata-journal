@@ -1,5 +1,14 @@
 \subsection{Providing scalable Big Data storage as services}
 
+Figure 2 presents the general architecture of the transport data store as a service that we propose. It adopts a polyglot persistence approach that combines several NoSQL systems for providing a storage support. Profiting from the cluster-oriented architecture of these systems our store uses a multi-cloud cluster based storage layer, which uses tools such as Swift (openstack 2015) and Amazon S3 (Amazon 2015). 
+
+(Buneman et al. 2000) layer with data processing operators including joins and filters for storing and retrieving data in an homogeneous way.
+Furthermore, it exploits the sharding strategies of the NoSQL (Cattell 2011) systems for distributing and duplicating data, and ensuring availability. Shards are organized according to ranges of values of given attributes, or to hash functions and tags related to geographic zones. This induces request balancing and ensures better performance when data must be inserted and retrieved.
+The service exploits also the persistence supports of clients (disk and cache) installed in mobile devices in order to distribute data processing and ensure data availability. For example, in our transport scenario, the service uses storage provided by devices used by taxis and users to process and manage data necessary for ITS services described in the previous section. In this way it avoids data transfer that can be penalizing in terms of response time and economic cost for accessing 3G or 4G networks.
+
+Our data store service provides a global access to clusters providing NoSQL and relational support, and enables applications designers to configure their resources provision and non-functional properties according to given requirements and cloud subscriptions. An application defines the data structures that must persist in the UML eclipse plugin and then the tool Model2Roo (https://code.google.com/p/model2roo/) generates the necessary bindings to interact with different NoSQL stores. The application designer according to a profiling phase executed using the QDB benchmark (https://github.com/qdb-io) chooses the NoSQL stores. 
+
+
 \subsection{Intelligent and integrated views of Urban Data}
 
 \subsection{Real-time Decision making and recommendation for ITS}
